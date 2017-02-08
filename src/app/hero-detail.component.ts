@@ -12,8 +12,8 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   moduleId: module.id,
   selector: 'my-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: [ './hero-detail.component.css' ]
+  templateUrl: 'html/hero-detail.component.html',
+  styleUrls: [ 'css/hero-detail.component.css' ]
 })
 
 export class HeroDetailComponent implements OnInit{
@@ -34,6 +34,11 @@ export class HeroDetailComponent implements OnInit{
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    this.heroService.update(this.hero)
+      .then(() => this.goBack());
   }
 
 }
